@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { SectionReveal } from "@/components/SectionReveal";
 import { MagneticButton } from "@/components/MagneticButton";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import CountUp from "@/components/CountUp";
 
 export const metadata: Metadata = {
   title: "Sonia Ayer | Architecte d\u2019int\u00e9rieur \u00e0 Colmar",
@@ -195,7 +196,7 @@ export default function Home() {
                   className="font-heading font-light text-white"
                   style={{ fontSize: "clamp(48px, 6vw, 80px)" }}
                 >
-                  {stat.num}
+                  <CountUp target={stat.num} />
                 </span>
                 <span
                   className="mt-3 font-sans text-[10px] uppercase tracking-[0.3em]"
@@ -323,6 +324,8 @@ export default function Home() {
               <div
                 className="group relative h-full min-h-[480px] cursor-pointer overflow-hidden"
                 style={{ border: "1px solid rgba(255,255,255,0.05)" }}
+                data-cursor-label={realisations[0].name}
+                data-tilt
               >
                 <Image
                   src={realisations[0].src}
@@ -353,6 +356,8 @@ export default function Home() {
               <div
                 className="group relative aspect-[4/3] cursor-pointer overflow-hidden"
                 style={{ border: "1px solid rgba(255,255,255,0.05)" }}
+                data-cursor-label={realisations[1].name}
+                data-tilt
               >
                 <Image
                   src={realisations[1].src}
@@ -381,6 +386,8 @@ export default function Home() {
               <div
                 className="group relative aspect-[4/3] cursor-pointer overflow-hidden"
                 style={{ border: "1px solid rgba(255,255,255,0.05)" }}
+                data-cursor-label={realisations[2].name}
+                data-tilt
               >
                 <Image
                   src={realisations[2].src}

@@ -5,6 +5,10 @@ import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import GrainOverlay from "@/components/GrainOverlay";
+import Preloader from "@/components/Preloader";
+import ScrollProgress from "@/components/ScrollProgress";
+import CursorFollower from "@/components/CursorFollower";
+import TiltEffect from "@/components/TiltEffect";
 import "./globals.css";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -86,6 +90,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
+        <Preloader />
+        <ScrollProgress />
+        <CursorFollower />
+        <TiltEffect />
         <CustomCursor />
         <GrainOverlay />
         <SmoothScroll>

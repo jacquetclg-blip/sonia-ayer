@@ -7,6 +7,7 @@ interface SectionRevealProps {
   className?: string;
   style?: React.CSSProperties;
   delay?: number;
+  revealType?: "fade" | "clip";
 }
 
 export function SectionReveal({
@@ -14,6 +15,7 @@ export function SectionReveal({
   className = "",
   style,
   delay = 0,
+  revealType = "fade",
 }: SectionRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -53,6 +55,22 @@ export function SectionReveal({
     observer.observe(el);
     return () => observer.disconnect();
   }, [reveal]);
+
+  if (revealType === "clip") {
+    return (
+      <div
+        ref={containerRef}
+        className={className}
+        style={{
+          ...style,
+          clipPath: isVisible ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)",
+          transition: "clip-path 0.9s cubic-bezier(0.76, 0, 0.24, 1)",
+        }}
+      >
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div

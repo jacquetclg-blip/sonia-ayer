@@ -256,6 +256,18 @@ export function Hero() {
           />
         ))}
       </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10" style={{ marginLeft: "80px" }}>
+        <span className="font-sans text-[9px] uppercase tracking-[0.3em]" style={{ color: "rgba(190,190,190,0.4)" }}>Scroll</span>
+        <div className="relative h-12 w-px overflow-hidden" style={{ backgroundColor: "rgba(255,255,255,0.1)" }}>
+          <div className="absolute top-0 left-0 w-full" style={{
+            height: "40%",
+            backgroundColor: "#ad8661",
+            animation: "scrollLine 1.5s ease-in-out infinite",
+          }} />
+        </div>
+      </div>
     </section>
   );
 }
