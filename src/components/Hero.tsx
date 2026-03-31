@@ -183,7 +183,7 @@ export function Hero() {
           ref={taglineRef}
           className="mt-8 max-w-md font-sans text-lg text-white/70 opacity-0"
         >
-          Transformer vos espaces, r&eacute;v&eacute;ler votre int&eacute;rieur
+          Je transforme vos espaces, je r&eacute;v&egrave;le votre int&eacute;rieur
         </p>
 
         {/* CTA */}

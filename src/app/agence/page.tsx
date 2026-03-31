@@ -43,19 +43,19 @@ export default function AgencePage() {
         </h2>
         <div className="mt-8 space-y-6 font-sans text-[15px] font-light leading-relaxed text-[#212529]/80">
           <p>
-            Sonia a commence par se former en architecture d&apos;interieur, puis elle a eu la chance de travailler
-            aux cotes d&apos;un designer reconnu, intervenant regulier sur France 5. C&apos;est la qu&apos;elle a
+            J&apos;ai commence par me former en architecture d&apos;interieur, puis j&apos;ai eu la chance de travailler
+            aux cotes d&apos;un designer reconnu, intervenant regulier sur France 5. C&apos;est la que j&apos;ai
             vraiment appris le metier, au contact de quelqu&apos;un qui ne faisait aucun compromis sur les proportions,
             les matieres, la lumiere. Ce genre de formation ne s&apos;oublie pas.
           </p>
           <p>
-            Elle a ensuite rejoint les Galeries Lafayette pour le merchandising visuel, ou elle a developpe un oeil
+            J&apos;ai ensuite rejoint les Galeries Lafayette pour le merchandising visuel, ou j&apos;ai developpe un oeil
             pour la mise en scene et la composition dans des espaces commerciaux. Puis est venue la gestion de projets
             dans un cabinet d&apos;architecture a Strasbourg, avec tout ce que cela implique : les plans, les artisans,
             les delais, les budgets. Le genre de quotidien qui vous apprend a garder la tete froide.
           </p>
           <p>
-            Tout ce parcours l&apos;a conduite a ouvrir sa propre agence a Colmar. Aujourd&apos;hui, elle y
+            Tout ce parcours m&apos;a conduite a ouvrir mon agence a Colmar. Aujourd&apos;hui, j&apos;y
             accompagne des particuliers et des professionnels qui veulent transformer leurs espaces de vie ou de travail.
             Pas de recette toute faite, pas de copier coller : chaque projet part de zero, de la personne qui va
             habiter l&apos;espace.
@@ -91,7 +91,7 @@ export default function AgencePage() {
       <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-12 lg:py-28">
         <SectionReveal>
           <h2 className="font-heading text-3xl font-light text-[#212529] lg:text-4xl">
-            Ce qui compte pour nous
+            Ce qui compte pour moi
           </h2>
         </SectionReveal>
 
@@ -102,7 +102,7 @@ export default function AgencePage() {
             </h3>
             <p className="mt-4 font-sans text-[14px] font-light leading-relaxed text-[#212529]/70">
               Un projet reussi, ca commence toujours par une conversation. Comprendre comment vous vivez,
-              ce qui vous plait, ce qui vous gene dans votre espace actuel. On prend le temps qu&apos;il faut
+              ce qui vous plait, ce qui vous gene dans votre espace actuel. Je prends le temps qu&apos;il faut
               pour ca, parce que le reste en decoule.
             </p>
           </SectionReveal>
@@ -112,8 +112,8 @@ export default function AgencePage() {
               La creativite
             </h3>
             <p className="mt-4 font-sans text-[14px] font-light leading-relaxed text-[#212529]/70">
-              Chaque interieur est different et chaque client aussi. On ne plaque pas un style sur un espace,
-              on cherche ce qui va fonctionner ici, pour vous. Parfois c&apos;est une couleur, un materiau,
+              Chaque interieur est different et chaque client aussi. Je ne plaque pas un style sur un espace,
+              je cherche ce qui va fonctionner ici, pour vous. Parfois c&apos;est une couleur, un materiau,
               un detail qu&apos;on n&apos;aurait pas imagine au depart.
             </p>
           </SectionReveal>
@@ -125,7 +125,7 @@ export default function AgencePage() {
             <p className="mt-4 font-sans text-[14px] font-light leading-relaxed text-[#212529]/70">
               Le souci du detail, c&apos;est ce qui fait la difference entre un espace correct et un espace
               dans lequel on se sent vraiment bien. Les finitions, les alignements, les textures, la facon
-              dont la lumiere tombe a telle heure. Rien n&apos;est laisse au hasard.
+              dont la lumiere tombe a telle heure. Je ne laisse rien au hasard.
             </p>
           </SectionReveal>
         </div>
@@ -138,7 +138,7 @@ export default function AgencePage() {
         </h2>
         <div className="mt-8">
           <MagneticButton href="/contact">
-            Nous contacter
+            Me contacter
           </MagneticButton>
         </div>
       </SectionReveal>

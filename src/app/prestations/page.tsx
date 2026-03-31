@@ -12,27 +12,27 @@ const services = [
   {
     name: "Architecture d'interieur",
     description:
-      "On reprend l'espace de zero. Plans, visualisations 3D, choix des materiaux, coordination des artisans. Que ce soit un appartement, une maison ou un local professionnel, on dessine l'ensemble et on suit le chantier jusqu'a la livraison.",
+      "Je reprends l'espace de zero. Plans, visualisations 3D, choix des materiaux, coordination des artisans. Que ce soit un appartement, une maison ou un local professionnel, je dessine l'ensemble et je suis le chantier jusqu'a la livraison.",
   },
   {
     name: "Decoration d'interieur",
     description:
-      "Le mobilier, les couleurs, les textiles, l'eclairage, les objets. On compose un interieur qui vous ressemble, en travaillant avec des fournisseurs et des artisans qu'on connait bien. Tout est choisi pour fonctionner ensemble, pas empile au hasard.",
+      "Le mobilier, les couleurs, les textiles, l'eclairage, les objets. Je compose un interieur qui vous ressemble, en travaillant avec des fournisseurs et des artisans que je connais bien. Tout est choisi pour fonctionner ensemble, pas empile au hasard.",
   },
   {
     name: "Renovation",
     description:
-      "On gere le projet de renovation de A a Z. Planification, budget, coordination des corps de metier, suivi du calendrier. On travaille avec des artisans de confiance en Alsace, et on veille a ce que le resultat soit a la hauteur du projet initial.",
+      "Je gere votre projet de renovation de A a Z. Planification, budget, coordination des corps de metier, suivi du calendrier. Je travaille avec des artisans de confiance en Alsace, et je veille a ce que le resultat soit a la hauteur du projet initial.",
   },
   {
     name: "Conseil & Accompagnement",
     description:
-      "Vous preferez gerer votre projet vous meme, mais vous aimeriez un regard professionnel pour demarrer ? On propose des seances de conseil ponctuelles : on echange sur vos plans, vos envies, et on vous donne des pistes concretes pour avancer.",
+      "Vous preferez gerer votre projet vous meme, mais vous aimeriez un regard professionnel pour demarrer ? Je propose des seances de conseil ponctuelles : on echange sur vos plans, vos envies, et je vous donne des pistes concretes pour avancer.",
   },
   {
     name: "Home staging",
     description:
-      "Preparer un bien a la vente pour qu'il parle aux acheteurs. On desencombre, on reorganise, on met en valeur les volumes et la lumiere. L'objectif est simple : que les visiteurs se projettent des la porte d'entree.",
+      "Preparer un bien a la vente pour qu'il parle aux acheteurs. Je desencombre, je reorganise, je mets en valeur les volumes et la lumiere. L'objectif est simple : que les visiteurs se projettent des la porte d'entree.",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function PrestationsPage() {
       {/* Hero */}
       <section className="flex flex-col items-center justify-center px-6 pt-40 pb-20 lg:pt-48 lg:pb-28">
         <h1 className="font-heading text-6xl font-light text-[#212529] lg:text-7xl">
-          Nos prestations
+          Mes prestations
         </h1>
         <p className="mt-4 font-sans text-sm font-light uppercase tracking-[0.2em] text-[#212529]/50">
           De la conception a la realisation

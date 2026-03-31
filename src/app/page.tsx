@@ -62,10 +62,10 @@ export default function Home() {
               Un regard singulier
             </h2>
             <p className="mt-6 max-w-lg font-sans text-base leading-relaxed text-[#212529]/70">
-              Form&eacute;e en architecture d&apos;int&eacute;rieur, Sonia a d&apos;abord
+              Form&eacute;e en architecture d&apos;int&eacute;rieur, j&apos;ai d&apos;abord
               travaill&eacute; aux c&ocirc;t&eacute;s d&apos;une designer reconnue pour ses
               interventions sur France 5, avant de passer par le visual merchandising
-              aux Galeries Lafayette. Elle a ensuite g&eacute;r&eacute; des projets au sein
+              aux Galeries Lafayette. J&apos;ai ensuite g&eacute;r&eacute; des projets au sein
               d&apos;un cabinet d&apos;architecture strasbourgeois. Ces exp&eacute;riences
               crois&eacute;es nourrissent aujourd&apos;hui une approche qui m&ecirc;le rigueur
               technique et sensibilit&eacute; esth&eacute;tique.
@@ -104,12 +104,12 @@ export default function Home() {
           </p>
           <div className="mx-auto mt-10 max-w-2xl">
             <p className="font-sans text-base leading-relaxed text-[#212529]/70">
-              Sonia a particip&eacute; &agrave; l&apos;&eacute;mission &laquo;&nbsp;Mission
-              Travaux&nbsp;&raquo; sur M6, diffus&eacute;e en prime time. Son r&ocirc;le :
+              J&apos;ai particip&eacute; &agrave; l&apos;&eacute;mission &laquo;&nbsp;Mission
+              Travaux&nbsp;&raquo; sur M6, diffus&eacute;e en prime time. Mon r&ocirc;le :
               accompagner des familles bloqu&eacute;es dans des chantiers abandonn&eacute;s,
               les aider &agrave; reprendre confiance et &agrave; voir enfin leur
-              projet aboutir. L&apos;exp&eacute;rience lui a confirm&eacute; ce qu&apos;elle
-              savait d&eacute;j&agrave;&nbsp;: c&apos;est le travail d&apos;&eacute;quipe, la
+              projet aboutir. L&apos;exp&eacute;rience m&apos;a confirm&eacute; ce que je
+              savais d&eacute;j&agrave;&nbsp;: c&apos;est le travail d&apos;&eacute;quipe, la
               compr&eacute;hension humaine autant que technique, qui fait la
               diff&eacute;rence dans une r&eacute;novation.
             </p>
@@ -129,22 +129,22 @@ export default function Home() {
               {
                 title: "Architecture d\u2019int\u00e9rieur",
                 description:
-                  "Repenser l\u2019agencement de vos espaces pour qu\u2019ils correspondent vraiment \u00e0 votre fa\u00e7on de vivre.",
+                  "Je repense l\u2019agencement de vos espaces pour qu\u2019ils correspondent vraiment \u00e0 votre fa\u00e7on de vivre.",
               },
               {
                 title: "D\u00e9coration",
                 description:
-                  "Couleurs, mati\u00e8res, mobilier\u00a0: cr\u00e9er une atmosph\u00e8re coh\u00e9rente qui vous ressemble.",
+                  "Couleurs, mati\u00e8res, mobilier\u00a0: je compose une atmosph\u00e8re coh\u00e9rente qui vous ressemble.",
               },
               {
                 title: "R\u00e9novation",
                 description:
-                  "Coordonner l\u2019ensemble du chantier, des premiers plans \u00e0 la remise des cl\u00e9s.",
+                  "Je coordonne l\u2019ensemble du chantier, des premiers plans \u00e0 la remise des cl\u00e9s.",
               },
               {
                 title: "Conseil & Accompagnement",
                 description:
-                  "Un \u0153il ext\u00e9rieur et des recommandations concr\u00e8tes pour avancer sereinement dans votre projet.",
+                  "Un regard ext\u00e9rieur et des recommandations concr\u00e8tes pour avancer sereinement dans votre projet.",
               },
             ].map((service) => (
               <div key={service.title} className="group">
@@ -163,7 +163,7 @@ export default function Home() {
               href="/prestations"
               className="inline-flex items-center gap-2 font-sans text-sm uppercase tracking-[0.2em] text-[#7f6145] transition-opacity hover:opacity-70"
             >
-              Voir toutes nos prestations
+              Voir toutes mes prestations
               <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>

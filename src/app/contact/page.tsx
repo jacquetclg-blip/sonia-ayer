@@ -176,7 +176,7 @@ export default function ContactPage() {
             {/* Social */}
             <div className="flex flex-col gap-4">
               <h2 className="font-heading text-2xl font-light text-[#212529]">
-                Retrouvez nous
+                Me retrouver
               </h2>
               <div className="flex items-center gap-6">
                 <a

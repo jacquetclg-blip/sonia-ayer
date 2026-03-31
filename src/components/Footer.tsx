@@ -27,7 +27,7 @@ export default function Footer() {
           <p className="mt-2 max-w-xs font-sans text-[11px] font-light leading-relaxed tracking-wide text-white/40">
             Architecture d&apos;interieur a Colmar, Alsace.
             <br />
-            Des espaces qui racontent votre histoire.
+            Je con&ccedil;ois des espaces qui vous ressemblent.
           </p>
         </div>
 

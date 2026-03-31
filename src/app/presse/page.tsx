@@ -165,12 +165,12 @@ export default function PressePage() {
               Un projet de rénovation ?
             </h2>
             <p className="mx-auto mt-4 max-w-lg font-sans text-base text-[#212529]/60">
-              Que votre chantier soit en cours ou à lancer, Sonia vous
-              accompagne de A à Z.
+              Que votre chantier soit en cours ou &agrave; lancer, je vous
+              accompagne de A &agrave; Z.
             </p>
             <div className="mt-10">
               <MagneticButton href="/contact">
-                Contactez Sonia
+                Parlons de votre projet
               </MagneticButton>
             </div>
           </SectionReveal>
