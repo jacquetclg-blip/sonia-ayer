@@ -25,17 +25,17 @@ function HamburgerIcon({ open }: { open: boolean }) {
   return (
     <div className="relative flex h-5 w-6 flex-col items-center justify-center">
       <span
-        className={`absolute h-[1px] w-full bg-current transition-transform duration-300 ${
+        className={`absolute h-[1px] w-full bg-white transition-transform duration-300 ${
           open ? "rotate-45" : "-translate-y-[6px]"
         }`}
       />
       <span
-        className={`absolute h-[1px] w-full bg-current transition-opacity duration-300 ${
+        className={`absolute h-[1px] w-full bg-white transition-opacity duration-300 ${
           open ? "opacity-0" : "opacity-100"
         }`}
       />
       <span
-        className={`absolute h-[1px] w-full bg-current transition-transform duration-300 ${
+        className={`absolute h-[1px] w-full bg-white transition-transform duration-300 ${
           open ? "-rotate-45" : "translate-y-[6px]"
         }`}
       />
@@ -47,20 +47,9 @@ export default function Navigation() {
   const navRef = useRef<HTMLElement>(null);
   const menuItemsRef = useRef<HTMLAnchorElement[]>([]);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Scroll detection for header background
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Entrance animation via CSS transition
+  // Entrance animation
   const [navVisible, setNavVisible] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => setNavVisible(true), 200);
@@ -86,7 +75,6 @@ export default function Navigation() {
 
   useEffect(() => {
     if (mobileOpen) {
-      // Small delay to let the sheet mount
       const timer = setTimeout(animateMobileItems, 50);
       return () => clearTimeout(timer);
     }
@@ -99,24 +87,24 @@ export default function Navigation() {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.05)]"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/5"
       style={{
+        backgroundColor: "transparent",
         opacity: navVisible ? 1 : 0,
         transform: navVisible ? "translateY(0)" : "translateY(-20px)",
-        transition: "opacity 0.8s ease, transform 0.8s ease, background-color 0.5s ease, box-shadow 0.5s ease, backdrop-filter 0.5s ease",
+        transition: "opacity 0.8s ease, transform 0.8s ease",
       }}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-12 lg:py-5">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 lg:px-12 lg:py-6">
         {/* Logo */}
         <Link href="/" className="group flex flex-col">
-          <span className="font-heading text-lg font-light uppercase tracking-[0.25em] text-[#212529] lg:text-xl">
+          <span className="font-heading text-lg font-light uppercase tracking-[0.25em] text-white lg:text-xl">
             SONIA AYER
           </span>
-          <span className="font-sans text-[9px] font-light uppercase tracking-[0.3em] text-[#212529]/60">
+          <span
+            className="font-sans text-[9px] font-light uppercase tracking-[0.3em]"
+            style={{ color: "rgba(190,190,190,0.5)" }}
+          >
             Architecte d&apos;interieur
           </span>
         </Link>
@@ -129,27 +117,39 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative font-sans text-[10px] font-light uppercase tracking-[0.2em] text-[#212529]"
+                className="group relative font-sans text-[11px] font-light uppercase tracking-[0.15em] transition-colors duration-200"
+                style={{ color: isActive ? "#ad8661" : "#bebebe" }}
+                onMouseEnter={(e) => {
+                  if (!isActive) (e.currentTarget as HTMLElement).style.color = "#ad8661";
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) (e.currentTarget as HTMLElement).style.color = "#bebebe";
+                }}
               >
                 {link.label}
-                <span
-                  className={`absolute -bottom-1 left-0 h-[0.5px] bg-[#212529] transition-transform duration-300 origin-left ${
-                    isActive
-                      ? "w-full scale-x-100"
-                      : "w-full scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
+                {isActive && (
+                  <span
+                    className="absolute -bottom-1 left-0 h-px w-full"
+                    style={{ backgroundColor: "#ad8661" }}
+                  />
+                )}
               </Link>
             );
           })}
 
           {/* Social */}
-          <div className="ml-4 flex items-center gap-4 border-l border-[#212529]/10 pl-6">
+          <div
+            className="ml-4 flex items-center gap-4 pl-6"
+            style={{ borderLeft: "1px solid rgba(255,255,255,0.08)" }}
+          >
             <a
               href="https://www.instagram.com/soniaayer_architecte/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-[9px] font-light uppercase tracking-[0.15em] text-[#212529]/50 transition-colors hover:text-[#212529]"
+              className="transition-colors duration-200"
+              style={{ color: "rgba(190,190,190,0.4)" }}
+              onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ad8661"}
+              onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(190,190,190,0.4)"}
               aria-label="Instagram"
             >
               <svg
@@ -171,7 +171,10 @@ export default function Navigation() {
               href="https://www.linkedin.com/in/sonia-ayer/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-[9px] font-light uppercase tracking-[0.15em] text-[#212529]/50 transition-colors hover:text-[#212529]"
+              className="transition-colors duration-200"
+              style={{ color: "rgba(190,190,190,0.4)" }}
+              onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ad8661"}
+              onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(190,190,190,0.4)"}
               aria-label="LinkedIn"
             >
               <svg
@@ -196,7 +199,7 @@ export default function Navigation() {
         <div className="lg:hidden">
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
-              className="relative z-50 p-2 text-[#212529]"
+              className="relative z-50 p-2"
               aria-label="Ouvrir le menu"
             >
               <HamburgerIcon open={mobileOpen} />
@@ -204,7 +207,8 @@ export default function Navigation() {
             <SheetContent
               side="right"
               showCloseButton={false}
-              className="flex w-full max-w-none flex-col items-center justify-center bg-white sm:max-w-none"
+              className="flex w-full max-w-none flex-col items-center justify-center sm:max-w-none"
+              style={{ backgroundColor: "#0b0c0e" }}
             >
               <SheetTitle className="sr-only">Menu de navigation</SheetTitle>
               <SheetDescription className="sr-only">
@@ -218,9 +222,13 @@ export default function Navigation() {
                     href={link.href}
                     ref={setMenuItemRef(i)}
                     onClick={() => setMobileOpen(false)}
-                    className={`font-heading text-3xl font-light uppercase tracking-[0.2em] text-[#212529] opacity-0 ${
-                      pathname === link.href ? "underline underline-offset-8 decoration-[0.5px]" : ""
-                    }`}
+                    className="font-heading text-3xl font-light uppercase tracking-[0.2em] text-white opacity-0"
+                    style={{
+                      textDecoration: pathname === link.href ? "underline" : "none",
+                      textUnderlineOffset: "8px",
+                      textDecorationThickness: "0.5px",
+                      textDecorationColor: "#ad8661",
+                    }}
                   >
                     {link.label}
                   </Link>
@@ -233,7 +241,8 @@ export default function Navigation() {
                   href="https://www.instagram.com/soniaayer_architecte/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#212529]/50"
+                  className="font-sans text-[10px] uppercase tracking-[0.2em]"
+                  style={{ color: "rgba(190,190,190,0.4)" }}
                 >
                   Instagram
                 </a>
@@ -241,7 +250,8 @@ export default function Navigation() {
                   href="https://www.linkedin.com/in/sonia-ayer/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#212529]/50"
+                  className="font-sans text-[10px] uppercase tracking-[0.2em]"
+                  style={{ color: "rgba(190,190,190,0.4)" }}
                 >
                   LinkedIn
                 </a>

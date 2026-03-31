@@ -5,12 +5,14 @@ import { useRef, useEffect, useState, useCallback } from "react";
 interface SectionRevealProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   delay?: number;
 }
 
 export function SectionReveal({
   children,
   className = "",
+  style,
   delay = 0,
 }: SectionRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,6 +59,7 @@ export function SectionReveal({
       ref={containerRef}
       className={className}
       style={{
+        ...style,
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(30px)",
         transition:

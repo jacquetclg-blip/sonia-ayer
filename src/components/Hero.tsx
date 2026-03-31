@@ -8,9 +8,9 @@ import DustParticles from "@/components/DustParticles";
 import gsap from "gsap";
 
 const slides = [
-  { src: "/images/hero/diapo1.jpg", alt: "Réalisation intérieure Sonia Ayer" },
-  { src: "/images/hero/diapo2.jpg", alt: "Architecture intérieure Colmar" },
-  { src: "/images/hero/diapo3.jpg", alt: "Design d'intérieur Alsace" },
+  { src: "/images/hero/diapo1.jpg", alt: "Réalisation intérieure Sonia Ayer", label: "COLMAR" },
+  { src: "/images/hero/diapo2.jpg", alt: "Architecture intérieure Colmar", label: "ALSACE" },
+  { src: "/images/hero/diapo3.jpg", alt: "Design d'intérieur Alsace", label: "RÉNOVATION" },
 ];
 
 const TITLE = "Sonia Ayer";
@@ -19,13 +19,13 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState<number | null>(null);
   const [transitioning, setTransitioning] = useState(false);
-  const [visible, setVisible] = useState(false);
   const lettersRef = useRef<(HTMLSpanElement | null)[]>([]);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const taglineRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
+  const labelRef = useRef<HTMLSpanElement>(null);
 
   // Entrance animation
   useEffect(() => {
@@ -76,7 +76,14 @@ export function Hero() {
       );
     }
 
-    setVisible(true);
+    if (labelRef.current) {
+      tl.fromTo(
+        labelRef.current,
+        { opacity: 0, x: 10 },
+        { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" },
+        "-=0.5"
+      );
+    }
 
     return () => {
       tl.kill();
@@ -110,15 +117,18 @@ export function Hero() {
   }, [currentSlide, transitioning]);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* Background slideshow */}
+    <section
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      style={{ backgroundColor: "#0b0c0e" }}
+    >
+      {/* Background slideshow — very low opacity for texture */}
       <div ref={bgRef} className="absolute inset-0 scale-[1.15] origin-center">
         {slides.map((slide, i) => (
           <div
             key={slide.src}
             className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out"
             style={{
-              opacity: i === currentSlide ? 1 : i === prevSlide ? 0 : 0,
+              opacity: i === currentSlide ? 0.3 : i === prevSlide ? 0 : 0,
               zIndex: i === currentSlide ? 2 : i === prevSlide ? 1 : 0,
             }}
           >
@@ -134,13 +144,10 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Dark gradient overlay */}
+      {/* Dark overlay — not white gradient */}
       <div
         className="absolute inset-0 z-10"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(33,37,41,0.55) 0%, rgba(33,37,41,0.35) 50%, rgba(33,37,41,0.65) 100%)",
-        }}
+        style={{ backgroundColor: "rgba(11,12,14,0.7)" }}
       />
 
       {/* Dust particles */}
@@ -148,21 +155,43 @@ export function Hero() {
         <DustParticles />
       </div>
 
+      {/* Slide panel label — top right */}
+      <div className="absolute top-8 right-8 z-30 flex flex-col items-end gap-1">
+        <span
+          ref={labelRef}
+          className="font-sans text-[10px] uppercase tracking-[0.35em] opacity-0"
+          style={{ color: "#ad8661" }}
+        >
+          {slides[currentSlide].label}
+        </span>
+        <span
+          className="font-sans text-[9px] uppercase tracking-[0.2em]"
+          style={{ color: "rgba(190,190,190,0.3)" }}
+        >
+          {String(currentSlide + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+        </span>
+      </div>
+
       {/* Content */}
       <div className="relative z-30 flex flex-col items-center px-6 text-center">
         {/* Subtitle */}
         <p
           ref={subtitleRef}
-          className="font-sans text-xs uppercase tracking-[0.3em] text-white/50 opacity-0"
+          className="font-sans text-xs uppercase tracking-[0.35em] opacity-0"
+          style={{ color: "rgba(190,190,190,0.5)" }}
         >
           Architecte d&apos;int&eacute;rieur &agrave; Colmar
         </p>
 
         {/* Split letter title */}
         <h1
-          className="mt-6 font-heading text-7xl font-light text-white md:text-8xl lg:text-9xl"
+          className="mt-6 font-heading font-light text-white"
           aria-label={TITLE}
-          style={{ perspective: "600px" }}
+          style={{
+            fontSize: "clamp(64px, 8vw, 120px)",
+            lineHeight: 1,
+            perspective: "600px",
+          }}
         >
           {TITLE.split("").map((char, i) => (
             <span
@@ -181,7 +210,8 @@ export function Hero() {
         {/* Tagline */}
         <p
           ref={taglineRef}
-          className="mt-8 max-w-md font-sans text-lg text-white/70 opacity-0"
+          className="mt-8 max-w-md font-sans text-sm uppercase tracking-[0.2em] opacity-0"
+          style={{ color: "#bebebe" }}
         >
           Je transforme vos espaces, je r&eacute;v&egrave;le votre int&eacute;rieur
         </p>
@@ -199,7 +229,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Slide indicators */}
+      {/* Slide indicators — bottom center */}
       <div className="absolute bottom-8 left-1/2 z-30 flex -translate-x-1/2 gap-2">
         {slides.map((_, i) => (
           <button
@@ -220,7 +250,7 @@ export function Hero() {
               backgroundColor:
                 i === currentSlide
                   ? "rgba(255,255,255,0.9)"
-                  : "rgba(255,255,255,0.3)",
+                  : "rgba(255,255,255,0.25)",
             }}
             aria-label={`Slide ${i + 1}`}
           />

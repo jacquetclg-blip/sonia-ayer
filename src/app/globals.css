@@ -49,38 +49,48 @@
 }
 
 :root {
-  --background: #f0efec;
-  --foreground: #212529;
-  --card: #FFFFFF;
-  --card-foreground: #212529;
-  --popover: #FFFFFF;
-  --popover-foreground: #212529;
-  --primary: #7f6145;
-  --primary-foreground: #FFFFFF;
-  --secondary: #d5cabe;
-  --secondary-foreground: #212529;
-  --muted: #f0efec;
-  --muted-foreground: #7f6145;
-  --accent: #d5cabe;
-  --accent-foreground: #212529;
+  /* Design tokens — dark luxury palette */
+  --bg-primary: #0b0c0e;
+  --bg-secondary: #1e2226;
+  --bg-cream: #f0efec;
+  --accent: #ad8661;
+  --accent-dark: #7f6145;
+  --text-heading: #ffffff;
+  --text-body: #bebebe;
+  --text-muted: rgba(190, 190, 190, 0.5);
+
+  /* shadcn/ui tokens remapped to dark theme */
+  --background: #0b0c0e;
+  --foreground: #bebebe;
+  --card: #1e2226;
+  --card-foreground: #bebebe;
+  --popover: #1e2226;
+  --popover-foreground: #bebebe;
+  --primary: #ad8661;
+  --primary-foreground: #ffffff;
+  --secondary: #1e2226;
+  --secondary-foreground: #bebebe;
+  --muted: #1e2226;
+  --muted-foreground: rgba(190, 190, 190, 0.5);
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #d5cabe;
-  --input: #d5cabe;
-  --ring: #7f6145;
-  --chart-1: #7f6145;
-  --chart-2: #d5cabe;
-  --chart-3: #212529;
-  --chart-4: #f0efec;
-  --chart-5: #FFFFFF;
-  --radius: 0.625rem;
-  --sidebar: #f0efec;
-  --sidebar-foreground: #212529;
-  --sidebar-primary: #7f6145;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #d5cabe;
-  --sidebar-accent-foreground: #212529;
-  --sidebar-border: #d5cabe;
-  --sidebar-ring: #7f6145;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #ad8661;
+  --chart-1: #ad8661;
+  --chart-2: #1e2226;
+  --chart-3: #bebebe;
+  --chart-4: #0b0c0e;
+  --chart-5: #ffffff;
+  --radius: 0.125rem;
+  --sidebar: #1e2226;
+  --sidebar-foreground: #bebebe;
+  --sidebar-primary: #ad8661;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #0b0c0e;
+  --sidebar-accent-foreground: #bebebe;
+  --sidebar-border: rgba(255, 255, 255, 0.05);
+  --sidebar-ring: #ad8661;
 }
 
 /* ------------------------------------------------
@@ -111,39 +121,39 @@ html {
    Selection color
    ------------------------------------------------ */
 ::selection {
-  background-color: #7f6145;
-  color: #FFFFFF;
+  background-color: #ad8661;
+  color: #ffffff;
 }
 
 ::-moz-selection {
-  background-color: #7f6145;
-  color: #FFFFFF;
+  background-color: #ad8661;
+  color: #ffffff;
 }
 
 /* ------------------------------------------------
    Custom scrollbar
    ------------------------------------------------ */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f0efec;
+  background: #0b0c0e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7f6145;
-  border-radius: 3px;
+  background: #ad8661;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #212529;
+  background: #1e2226;
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #7f6145 #f0efec;
+  scrollbar-color: #ad8661 #0b0c0e;
 }
 
 /* ------------------------------------------------
@@ -155,11 +165,11 @@ body::before {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: 0.025;
   background-image:
-    repeating-radial-gradient(circle at 17% 32%, #212529 0px, transparent 1px),
-    repeating-radial-gradient(circle at 62% 71%, #212529 0px, transparent 1px),
-    repeating-radial-gradient(circle at 83% 14%, #212529 0px, transparent 1px);
+    repeating-radial-gradient(circle at 17% 32%, #bebebe 0px, transparent 1px),
+    repeating-radial-gradient(circle at 62% 71%, #bebebe 0px, transparent 1px),
+    repeating-radial-gradient(circle at 83% 14%, #bebebe 0px, transparent 1px);
   background-size: 3px 3px, 5px 5px, 4px 4px;
 }
 
@@ -178,12 +188,15 @@ body::before {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: #0b0c0e;
+    color: #bebebe;
+    @apply font-sans;
   }
   html {
     @apply font-sans;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    color: #ffffff;
   }
 }
