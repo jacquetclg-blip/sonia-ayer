@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SectionReveal } from "@/components/SectionReveal";
 import { MagneticButton } from "@/components/MagneticButton";
 
@@ -21,9 +22,18 @@ export default function AgencePage() {
         </p>
       </section>
 
-      {/* Image placeholder hero */}
+      {/* Portrait hero image */}
       <SectionReveal className="mx-auto max-w-[1400px] px-6 lg:px-12">
-        <div className="aspect-[16/7] w-full bg-secondary" />
+        <div className="relative aspect-[16/7] w-full overflow-hidden">
+          <Image
+            src="/images/agence/sonia-portrait.jpg"
+            alt="Sonia Ayer, architecte d'intérieur à Colmar"
+            fill
+            style={{ objectFit: "cover", objectPosition: "center 20%" }}
+            priority
+            sizes="(max-width: 1400px) 100vw, 1400px"
+          />
+        </div>
       </SectionReveal>
 
       {/* Bio */}
@@ -53,11 +63,27 @@ export default function AgencePage() {
         </div>
       </SectionReveal>
 
-      {/* Image placeholder portrait */}
+      {/* Portrait gallery */}
       <SectionReveal className="mx-auto max-w-[1400px] px-6 lg:px-12">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="aspect-[3/4] bg-secondary" />
-          <div className="aspect-[3/4] bg-secondary" />
+          <div className="relative aspect-[3/4] overflow-hidden">
+            <Image
+              src="/images/agence/sonia-portrait.jpg"
+              alt="Sonia Ayer dans son agence à Colmar"
+              fill
+              style={{ objectFit: "cover", objectPosition: "center top" }}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+          <div className="relative aspect-[3/4] overflow-hidden">
+            <Image
+              src="/images/agence/img4437.jpg"
+              alt="Sonia Ayer architecte d'intérieur"
+              fill
+              style={{ objectFit: "cover", objectPosition: "center" }}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </SectionReveal>
 

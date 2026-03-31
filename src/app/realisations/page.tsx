@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SectionReveal } from "@/components/SectionReveal";
 import { MagneticButton } from "@/components/MagneticButton";
 
@@ -9,12 +10,36 @@ export const metadata: Metadata = {
 };
 
 const projects = [
-  { name: "Appartement Colmar Centre", location: "Colmar" },
-  { name: "Maison Kaysersberg", location: "Kaysersberg" },
-  { name: "Loft Strasbourg", location: "Strasbourg" },
-  { name: "Villa Rouffach", location: "Rouffach" },
-  { name: "Duplex Selestat", location: "Selestat" },
-  { name: "Appartement Mulhouse", location: "Mulhouse" },
+  {
+    name: "Appartement Colmar Centre",
+    location: "Colmar",
+    src: "/images/realisations/projet1.png",
+  },
+  {
+    name: "Maison Kaysersberg",
+    location: "Kaysersberg",
+    src: "/images/realisations/projet2.png",
+  },
+  {
+    name: "Loft Strasbourg",
+    location: "Strasbourg",
+    src: "/images/realisations/projet3.png",
+  },
+  {
+    name: "Mission Travaux M6",
+    location: "Alsace",
+    src: "/images/realisations/projet-m6.webp",
+  },
+  {
+    name: "Projet Le C\u00e9page",
+    location: "Colmar",
+    src: "/images/realisations/projet-cepage.webp",
+  },
+  {
+    name: "Projet Le Tr\u00e8fle",
+    location: "Colmar",
+    src: "/images/realisations/projet-trefle.webp",
+  },
 ];
 
 export default function RealisationsPage() {
@@ -36,7 +61,16 @@ export default function RealisationsPage() {
           {projects.map((project, index) => (
             <SectionReveal key={project.name} delay={index * 0.1}>
               <div className="group relative cursor-pointer overflow-hidden">
-                <div className="aspect-[3/4] w-full bg-secondary transition-transform duration-700 group-hover:scale-105" />
+                <div className="relative aspect-[3/4] w-full overflow-hidden">
+                  <Image
+                    src={project.src}
+                    alt={project.name}
+                    fill
+                    style={{ objectFit: "cover", objectPosition: "center" }}
+                    className="transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
                 <div className="absolute inset-0 flex flex-col items-center justify-end bg-[#212529]/0 pb-8 transition-all duration-500 group-hover:bg-[#212529]/40">
                   <span className="translate-y-4 font-heading text-xl font-light text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 lg:text-2xl">
                     {project.name}

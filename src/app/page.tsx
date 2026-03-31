@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { SectionReveal } from "@/components/SectionReveal";
 import { MagneticButton } from "@/components/MagneticButton";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 export const metadata: Metadata = {
   title: "Sonia Ayer | Architecte d'int\u00e9rieur \u00e0 Colmar",
@@ -10,11 +12,47 @@ export const metadata: Metadata = {
     "Sonia Ayer, architecte d'int\u00e9rieur \u00e0 Colmar en Alsace. Conception d'espaces, r\u00e9novation, d\u00e9coration et accompagnement sur mesure pour particuliers et professionnels.",
 };
 
+const realisations = [
+  {
+    src: "/images/realisations/projet1.png",
+    name: "Appartement Colmar Centre",
+    location: "Colmar",
+  },
+  {
+    src: "/images/realisations/projet2.png",
+    name: "Maison Kaysersberg",
+    location: "Kaysersberg",
+  },
+  {
+    src: "/images/realisations/projet3.png",
+    name: "Loft Strasbourg",
+    location: "Strasbourg",
+  },
+];
+
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <Hero />
+
+      {/* Avant / Après */}
+      <SectionReveal className="bg-[#212529] px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-12 text-center">
+            <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#7f6145]/70">
+              Avant &amp; Apr&egrave;s
+            </p>
+            <h2 className="mt-4 font-heading text-4xl font-light text-white md:text-5xl">
+              La transformation en images
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg font-sans text-sm text-white/50">
+              Glissez le curseur pour voir la diff&eacute;rence avant et apr&egrave;s intervention.
+            </p>
+          </div>
+          <BeforeAfterSlider />
+        </div>
+      </SectionReveal>
 
       {/* L'agence */}
       <SectionReveal className="px-6 py-24 md:py-32">
@@ -40,7 +78,15 @@ export default function Home() {
               <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
-          <div className="aspect-[4/3] bg-secondary" />
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Image
+              src="/images/agence/sonia-portrait.jpg"
+              alt="Sonia Ayer, architecte d'intérieur à Colmar"
+              fill
+              style={{ objectFit: "cover", objectPosition: "center top" }}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </SectionReveal>
 
@@ -131,8 +177,29 @@ export default function Home() {
             R&eacute;alisations
           </h2>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="aspect-[3/4] bg-secondary" />
+            {realisations.map((item, i) => (
+              <SectionReveal key={item.name} delay={i * 0.1}>
+                <div className="group relative overflow-hidden cursor-pointer">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden">
+                    <Image
+                      src={item.src}
+                      alt={item.name}
+                      fill
+                      style={{ objectFit: "cover", objectPosition: "center" }}
+                      className="transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-end bg-[#212529]/0 pb-8 transition-all duration-500 group-hover:bg-[#212529]/40">
+                    <span className="translate-y-4 font-heading text-xl font-light text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 lg:text-2xl">
+                      {item.name}
+                    </span>
+                    <span className="translate-y-4 font-sans text-[10px] font-light uppercase tracking-[0.2em] text-white/70 opacity-0 transition-all duration-500 delay-75 group-hover:translate-y-0 group-hover:opacity-100">
+                      {item.location}
+                    </span>
+                  </div>
+                </div>
+              </SectionReveal>
             ))}
           </div>
           <div className="mt-16 text-center">
@@ -157,7 +224,7 @@ export default function Home() {
             Parlons de votre int&eacute;rieur
           </p>
           <div className="mt-12">
-            <MagneticButton href="/contact" variant="secondary" className="border-white/30 text-white">
+            <MagneticButton href="/contact" variant="light">
               Prendre contact
             </MagneticButton>
           </div>

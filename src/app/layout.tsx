@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Josefin_Sans } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
+import GrainOverlay from "@/components/GrainOverlay";
 import "./globals.css";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -83,9 +86,13 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CustomCursor />
+        <GrainOverlay />
+        <SmoothScroll>
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

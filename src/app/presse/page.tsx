@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { SectionReveal } from "@/components/SectionReveal";
 import { MagneticButton } from "@/components/MagneticButton";
@@ -46,26 +47,21 @@ export default function PressePage() {
           </SectionReveal>
 
           <SectionReveal delay={0.15}>
-            {/* Video/Image Placeholder */}
-            <div className="aspect-video w-full bg-[#d5cabe]/20 flex items-center justify-center">
-              <div className="text-center">
-                <svg
-                  width="48"
-                  height="48"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#7f6145"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="mx-auto mb-4"
-                >
-                  <rect x="2" y="7" width="20" height="15" rx="2" ry="2" />
-                  <polyline points="17 2 12 7 7 2" />
-                </svg>
-                <p className="font-sans text-sm uppercase tracking-[0.2em] text-[#7f6145]/60">
-                  Vidéo de l'émission
-                </p>
+            {/* M6 mission travaux photo */}
+            <div className="relative aspect-video w-full overflow-hidden">
+              <Image
+                src="/images/presse/m6-mission-travaux.jpg"
+                alt="Sonia Ayer dans l'émission Mission Travaux sur M6"
+                fill
+                style={{ objectFit: "cover", objectPosition: "center" }}
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#212529]/30 to-transparent" />
+              <div className="absolute bottom-6 left-6">
+                <span className="font-sans text-xs uppercase tracking-[0.3em] text-white/80 bg-[#7f6145] px-4 py-2">
+                  M6 &mdash; Mission Travaux &mdash; Prime Time
+                </span>
               </div>
             </div>
           </SectionReveal>
@@ -102,11 +98,20 @@ export default function PressePage() {
                 </p>
               </div>
 
-              <div className="flex items-start">
+              <div className="flex flex-col gap-8">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src="/images/presse/photo-encart-m6.png"
+                    alt="Encart M6 Mission Travaux avec Sonia Ayer"
+                    fill
+                    style={{ objectFit: "cover", objectPosition: "center" }}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
                 <blockquote className="border-l-2 border-[#7f6145] pl-8">
                   <p className="font-heading text-2xl font-light italic leading-relaxed text-[#212529] md:text-3xl">
-                    &laquo;&nbsp;Reprendre un chantier abandonné, ce n'est pas
-                    juste de la technique. C'est redonner à une famille le droit
+                    &laquo;&nbsp;Reprendre un chantier abandonn&eacute;, ce n&apos;est pas
+                    juste de la technique. C&apos;est redonner &agrave; une famille le droit
                     de se sentir chez elle.&nbsp;&raquo;
                   </p>
                   <footer className="mt-6 font-sans text-sm uppercase tracking-[0.2em] text-[#7f6145]">

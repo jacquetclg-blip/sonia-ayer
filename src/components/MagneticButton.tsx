@@ -8,7 +8,7 @@ interface MagneticButtonLinkProps {
   children: React.ReactNode;
   href: string;
   className?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "light";
   type?: never;
   as?: "link";
 }
@@ -17,7 +17,7 @@ interface MagneticButtonButtonProps {
   children: React.ReactNode;
   href?: never;
   className?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "light";
   type?: "button" | "submit" | "reset";
   as: "button";
 }
@@ -67,6 +67,8 @@ export function MagneticButton({
   const variantStyles =
     variant === "primary"
       ? "bg-[#7f6145] text-white"
+      : variant === "light"
+      ? "border border-white/70 text-white hover:bg-white/10"
       : "border border-[#7f6145] text-[#7f6145]";
 
   const sharedProps = {
