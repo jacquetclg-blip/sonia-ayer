@@ -14,31 +14,37 @@ const projects = [
     name: "Appartement Colmar Centre",
     location: "Colmar",
     src: "/images/realisations/projet1.png",
+    aspect: "3/4",
   },
   {
     name: "Maison Kaysersberg",
     location: "Kaysersberg",
     src: "/images/realisations/projet2.png",
+    aspect: "3/4",
   },
   {
     name: "Loft Strasbourg",
     location: "Strasbourg",
     src: "/images/realisations/projet3.png",
+    aspect: "3/4",
   },
   {
     name: "Mission Travaux M6",
     location: "Alsace",
     src: "/images/realisations/projet-m6.webp",
+    aspect: "16/9",
   },
   {
     name: "Projet Le C\u00e9page",
     location: "Colmar",
     src: "/images/realisations/projet-cepage.webp",
+    aspect: "16/9",
   },
   {
     name: "Projet Le Tr\u00e8fle",
     location: "Colmar",
     src: "/images/realisations/projet-trefle.webp",
+    aspect: "16/9",
   },
 ];
 
@@ -61,7 +67,7 @@ export default function RealisationsPage() {
           {projects.map((project, index) => (
             <SectionReveal key={project.name} delay={index * 0.1}>
               <div className="group relative cursor-pointer overflow-hidden">
-                <div className="relative aspect-[3/4] w-full overflow-hidden">
+                <div className={`relative w-full overflow-hidden`} style={{ aspectRatio: project.aspect }}>
                   <Image
                     src={project.src}
                     alt={project.name}
